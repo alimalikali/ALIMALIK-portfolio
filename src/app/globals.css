@@ -32,7 +32,6 @@ body {
 @layer utilities {
 
 
-
   .c-space {
     @apply sm:px-10 px-5 py-8 sm:py-20;
   }
@@ -138,3 +137,44 @@ body {
     transform: rotate(0deg);
   }
 }
+
+
+
+
+
+
+
+
+.indicator-line {
+  @apply h-2 w-2 animate-pulse rounded-full bg-gray-400 transition-all duration-200 ease-in-out;
+}
+
+.indicator-line.active {
+  animation: wave-animation 0.8s ease-in-out infinite;
+  animation-delay: calc(var(--animation-order) * 0.15s);
+}
+
+@keyframes wave-animation {
+  0% {
+    height: 6px;
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+  25% {
+    height: 12px;
+    transform: translateY(-3px) scaleY(1.2) rotate(2deg);
+  }
+  50% {
+    height: 18px;
+    transform: translateY(-6px) scaleY(1.4) rotate(-2deg);
+  }
+  75% {
+    height: 12px;
+    transform: translateY(-3px) scaleY(1.2) rotate(2deg);
+  }
+  100% {
+    height: 6px;
+    transform: translateY(0) scaleY(1) rotate(0deg);
+  }
+}
+
+

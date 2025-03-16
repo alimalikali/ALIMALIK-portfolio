@@ -1,6 +1,9 @@
+"use client"
+
 import Image from "next/image";
 
 import { inspirations } from "@/constants";
+import { TiltCard } from "./TiltCard";
 
 const Inspiration = () => {
   return (
@@ -20,21 +23,25 @@ const Inspiration = () => {
 
         {/* Inspiration Card Component */}
         {inspirations.map(({ img, name, description, founded }, index) => (
-          <div
+          <TiltCard
             key={index}
-            className="p-6 w-[270px] sm:w-[300px] h-[500px] flex flex-col items-center justify-center
-            border border-white/20 rounded-2xl text-white shadow-lg shadow-white/10
+            className="rounded-2xl relative overflow-hidden">
+            <div
+              className="p-6 w-[270px] sm:w-[300px] h-[500px] flex flex-col items-center justify-center
+            rounded-2xl text-white shadow-lg shadow-white/10
             bg-white/10 backdrop-blur-lg transition-transform duration-300 
             hover:scale-105 hover:bg-white/20" >
-            <div className="flex items-center justify-center w-36 h-36">
-              <Image src={img} alt={name} width={100} height={100} className="w-full h-full rounded-full object-cover" />
+              <div className="flex items-center justify-center w-36 h-36">
+                <Image src={img} alt={name} width={100} height={100} className="w-full h-full rounded-full object-cover" />
+              </div>
+              <div className="p-4 flex gap-2 flex-col text-center">
+                <h3 className="text-xl font-bold mb-2">{name}</h3>
+                <p className="opacity-70">{description}</p>
+                <h2 className="opacity-80 font-bold mt-1">{founded}</h2>
+              </div>
+
             </div>
-            <div className="p-4 flex gap-2 flex-col text-center">
-              <h3 className="text-xl font-bold mb-2">{name}</h3>
-              <p className="opacity-70">{description}</p>
-              <h2 className="opacity-80 font-bold mt-1">{founded}</h2>
-            </div>
-          </div>
+          </TiltCard>
         ))}
 
       </div>

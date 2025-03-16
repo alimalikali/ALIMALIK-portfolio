@@ -26,7 +26,7 @@ export const navLinks = [
   },
   {
     id: 6,
-    name: 'Me💚',
+    name: 'Me',
     href: '/who-is-ali',
   },
 
